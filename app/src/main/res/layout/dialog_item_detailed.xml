@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <ImageView
+            android:id="@+id/imgOferta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@android:mipmap/sym_def_app_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:weightSum="1">
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:id="@+id/imgShop"
+                android:src="@drawable/shopping_off"
+                android:background="@null"
+                android:cropToPadding="false"
+                android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+            <LinearLayout
+                android:id="@+id/layoutBuyingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/imgMinus"
+                    android:src="@drawable/minus"
+                    android:background="@null"
+                    android:cropToPadding="false" />
+
+                <TextView
+                    android:id="@+id/txtBuyingCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="1"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/imgPlus"
+                    android:src="@drawable/plus"
+                    android:background="@null"
+                    android:cropToPadding="false" />
+
+
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:id="@+id/imgFavorite"
+                android:src="@drawable/favorite_off"
+                android:background="@null"
+                android:cropToPadding="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/appbar_padding_top">
+
+            <TextView
+                android:id="@+id/txtNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nombre oferta"
+                android:textAlignment="center"
+                android:textSize="@dimen/title"/>
+
+            <TextView
+                android:id="@+id/txtPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="precio"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="descripción oferta"
+                android:textSize="@dimen/body"
+                android:textAlignment="center"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+            <Button
+                android:id="@+id/btnContent"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:text="@string/content"
+                android:drawableLeft="@drawable/abajo"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:clickable="false"
+                android:visibility="gone"
+                android:background="?android:attr/selectableItemBackground"/>
+
+            <LinearLayout
+                android:id="@+id/layoutContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                >
+
+                <TextView
+                    android:id="@+id/txtEnergia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/energy"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtProteina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/protein"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtGrasa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fat"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtColesterol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cholesterol"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtCarbohidratos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/carbohydrate"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtFibra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fiber"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtVitA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_a"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtVitB6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_b6"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtVitB12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_b12"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtVitC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_c"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtVitE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vitamin_e"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtPotasio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/potassium"
+                    android:textSize="@dimen/caption"/>
+
+                <TextView
+                    android:id="@+id/txtHierro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/iron"
+                    android:textSize="@dimen/caption"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnProperties"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:text="@string/properties"
+                android:drawableLeft="@drawable/abajo"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:clickable="false"
+                android:visibility="gone"
+                android:background="?android:attr/selectableItemBackground"/>
+
+            <TextView
+                android:id="@+id/txtBiopropiedades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/biopropiedades"
+                android:gravity="center"
+                android:textSize="@dimen/caption"
+                android:visibility="gone"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        />
+</RelativeLayout>
+
+
+

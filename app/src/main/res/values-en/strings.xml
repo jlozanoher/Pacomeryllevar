@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="carbohydrate">Carbohydrate (g)</string>
+    <string name="cholesterol">Cholesterol (mg)</string>
+    <string name="energy">Energy (Kcal)</string>
+    <string name="fat">Fat (g)</string>
+    <string name="fiber">Fiber (g)</string>
+    <string name="iron">Iron (mg)</string>
+    <string name="potassium">Potassium (mg)</string>
+    <string name="protein">Protein (g)</string>
+    <string name="total_to_pay">Total payment</string>
+    <string name="vitamin_a">Vitamin A (μg)</string>
+    <string name="vitamin_b12">Vitamin B12 (μg)</string>
+    <string name="vitamin_b6">Vitamin B6 (mg)</string>
+    <string name="vitamin_c">Vitamin C (mg)</string>
+    <string name="vitamin_e">Vitamin E (mg)</string>
+    <string name="action_settings">Settings</string>
+    <string name="a_pagar_en_carta">Total payment:</string>
+    <string name="content">Nutritional content</string>
+    <string name="properties">Medicinal properties</string>
+    <string name="title_my_order">My order</string>
+    <string name="menu_add">Add to my order</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_remove">Remove from order</string>
+    <string name="menu_see">See</string>
+    <string name="action_invite">Invite friends</string>
+    <string name="added_one">+1</string>
+    <string name="order_eliminated">order eliminated</string>
+    <string name="toggled_favorites">Toggled favorite</string>
+    <string name="invitation">Offer !!!\nI invite you to Cocktail in Restaurante Mediterraneo Havana\nMake reservation\n+53 7 832 4894\nThe rest goes for you</string>
+    <string name="earn_money">Earn money !</string>
+    <string name="earn_money_maecenas">Join MAECENAS!</string>
+    <string name="maecenas_description">
+        Maecenas is everyone who wants to invite their friends and contacts to visit our restaurant.
+        For them, the restaurant offers a free cocktail. For each new Maecena, our restaurant opens a count in which he will accumulate credit
+        for each one of his friends who visits us.\n\n
+        Also, if you wish, your name will be inscribed for future invitations in our activities.
+        Your friends and contacts only need to make reservation by this phone +537 832 4894\n
+        Or present on your name to our Room Captain.
+    </string>
+    <string name="maecenas_request">I request to register as a maecenas\nmy name is\n</string>
+    <string name="join_maecenas">Join maecenas!</string>
+    <string name="language">Language</string>
+    <string name="select_language">Select the language</string>
+    <string name="location">Locate on map</string>
+    <string name="title_description">Description</string>
+    <string name="description">"Hours: 12:00 M to 12:00 AM.\n\n  Phone: +53 7 832 4894\n\n Address: Street 13, No. 406 e/ F y G, Vedado, Plaza de la Revolución\n\n
+    Site: www.medhavana.com"</string>
+    <string name="description2">The Mediterranean-Havana restaurant offers a selection of fresh
+        and natural products that come directly from the sea and the land.</string>
+    <string name="description3">We are provided by local
+        farms and fisher boats, allowing us to count with own production and processing,
+        absent of preservatives and additives, controlling at every step the quality of what we offer.</string>
+    <string name="description4">Our culinary team combines Mediterranean cuisine traditions, on
+        the hands of Luigi, our Chef native of Sardinia, with the merge and experience of our
+        local cuisine.</string>
+    <string name="description5">We hope the passion we put in the food we prepare and the
+        service we offer, led you to enjoy this pleasant environment, full of Mediterranean
+        flavors, making you feel in family.</string>
+    <string name="description6">The Vista Hermosa farm provides us with fresh and natural products, together we form a genuine project from farm to table.</string>
+    <string name="about_us">About Us</string>
+    <string name="read_more">Read more</string>
+    <string name="staff">Staff</string>
+    <string name="my_order_erased">\'My order\' erased</string>
+    <string name="biopropiedades">Bioproperties</string>
+    <string name="awards">Awards</string>
+    <string name="chef_ejecutivo">Chef Executive</string>
+    <string name="capitan">Captain</string>
+    <string name="recepcionista">Receptionist</string>
+</resources>

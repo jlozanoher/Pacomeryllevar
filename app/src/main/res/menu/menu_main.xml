@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bonaro.restaurant.MainActivity">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="1"
+        android:title="@string/language"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_location"
+        android:orderInCategory="2"
+        android:title="@string/location"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_invite"
+        android:orderInCategory="3"
+        android:title="@string/action_invite"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_earn_money"
+        android:orderInCategory="4"
+        android:title="@string/join_maecenas"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_aboutUs"
+        android:orderInCategory="5"
+        android:title="@string/about_us"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/imgOferta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:mipmap/sym_def_app_icon"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:maxWidth="54dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/txtBuyingCount"
+        android:layout_toRightOf="@+id/imgOferta" >
+
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            />
+
+        <TextView
+            android:id="@+id/txtPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_below="@id/txtNombre"
+            android:layout_alignLeft="@id/txtNombre"/>
+
+    </RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:id="@+id/imgShop"
+            android:src="@drawable/shopping_on"
+            android:background="@null"
+            android:cropToPadding="false"
+            android:layout_marginRight="4dp"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:id="@+id/imgFavorite"
+            android:src="@drawable/favorite_on"
+            android:background="@null"
+            android:cropToPadding="false" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtBuyingCount"
+        android:text="(x3)=$18.00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+</RelativeLayout>
