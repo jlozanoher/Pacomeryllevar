@@ -46,19 +46,15 @@
     <string name="invite_friends" translatable="false">invite_friends</string>
     <string name="shared_language" translatable="false">language</string>
     <string name="title_description">Descripción</string>
-    <string name="description">Horario: 12:00 M a 12:00 AM.\n\n Teléfono: +53 7 832 4894\n\n  Dirección: Calle 13, No. 406 e/ F y G, Vedado, Plaza de la Revolución\n\n
-    Sitio: www.medhavana.com</string>
-    <string name="description2">En el Restaurante Mediterráneo-Havana nos distinguimos por ofrecer
-        una selección de productos frescos y naturales que llegan directamente desde el mar y la tierra.
+    <string name="description">Horario: 9:00 AM a 12:00 AM.\n\n Teléfonos:  +53 7 830 7838, +53 52459978\n\n
+        Dirección: Calle 23, esquina H, Vedado, Plaza de la Revolución\n\n
+    </string>
+    <string name="description2">En la céntrica calle 23, a escasos metros de La Rampa, vuelve a dar luz una de las esquinas más visitadas de la ciudad. La vieja gasolinera, con sus columnas y capiteles originales, se ha rodeado de luces y jardines para ofrecer un nuevo servicio gastronómico en un ambiente informal, moderno y familiar.
         </string>
-    <string name="description3">Contamos con producción y elaboración propia, ausente de conservantes y aditivos,
-        controlando en cada momento la calidad de cuanto ofrecemos.</string>
-    <string name="description4">Nuestro equipo de cocina combina tradiciones mediterráneas,
-        de la mano de Luigi, nuestro chef, oriundo de la Cerdeña, con la fusión y experiencia
-        de la cocina local.</string>
-    <string name="description5">Esperamos que la pasión que acá todos ponemos a su servicio,
-        logre satisfacerle con este ambiente y sabor mediterráneo, ideado para hacerle sentir en familia.</string>
-    <string name="description6">La finca Vista Hermosa nos provee de productos frescos y naturales, juntos formamos un genuino proyecto de la granja a la mesa.</string>
+    <string name="description3">También, una hermosa y joven araucaria, junto a otros árboles maduros, comienza a crecer como símbolo de un compromiso de cuidado con lo natural.</string>
+    <string name="description4">Saboreando una cocina ecléctica, cientos de visitantes ya acuden diariamente y eligen sus alimentos de  una amplia carta pensada para satisfacer las preferencias a la medida de las diferentes tendencias actuales de alimentación.</string>
+    <string name="description5">Cocinas cubana, caribeña, italiana, española, china e internacional, son el punto de partida para caracterizar las ofertas del nuevo equipo de chefs y emprendedores que se han sumado para dar vida nueva a un proyecto que se propone crecer y evolucionar en búsqueda de un servicio soberano, sustentable y de alta calidad.</string>
+    <string name="description6">Vegetarianos, veganos y celíacos, también encuentran platillos ajustados a sus preferencias y necesidades. En un dialogo preciso y abierto, meceros y chefs están siempre a la orden para ajustarse a las necesidades y preferencias de cada uno de los clientes de 23 y H.</string>
     <string name="about_us">Acerca de nosotros</string>
     <string name="read_more">Leer más</string>
     <string name="staff">Personal</string>

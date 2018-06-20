@@ -44,20 +44,14 @@
     <string name="select_language">Select the language</string>
     <string name="location">Locate on map</string>
     <string name="title_description">Description</string>
-    <string name="description">"Hours: 12:00 M to 12:00 AM.\n\n  Phone: +53 7 832 4894\n\n Address: Street 13, No. 406 e/ F y G, Vedado, Plaza de la Revolución\n\n
-    Site: www.medhavana.com"</string>
-    <string name="description2">The Mediterranean-Havana restaurant offers a selection of fresh
-        and natural products that come directly from the sea and the land.</string>
-    <string name="description3">We are provided by local
-        farms and fisher boats, allowing us to count with own production and processing,
-        absent of preservatives and additives, controlling at every step the quality of what we offer.</string>
-    <string name="description4">Our culinary team combines Mediterranean cuisine traditions, on
-        the hands of Luigi, our Chef native of Sardinia, with the merge and experience of our
-        local cuisine.</string>
-    <string name="description5">We hope the passion we put in the food we prepare and the
-        service we offer, led you to enjoy this pleasant environment, full of Mediterranean
-        flavors, making you feel in family.</string>
-    <string name="description6">The Vista Hermosa farm provides us with fresh and natural products, together we form a genuine project from farm to table.</string>
+    <string name="description">Hours: 9:00 AM to 12:00 AM.\n\n  Phones: +53 7 830 7838, +53 52459978\n\n
+        Address: Street 23, corner H, Vedado, Plaza de la Revolución\n\n
+    </string>
+    <string name="description2">In the central street 23, a few meters from La Rampa, once again gives light one of the most visited corners of the city. The old gas station, with its original columns and capitals, has been surrounded by lights and gardens to offer a new gastronomic service in an informal, modern and family atmosphere.</string>
+    <string name="description3">Also, a beautiful young araucaria, along with other mature trees, begins to grow as a symbol of a commitment to care for the natural.</string>
+    <string name="description4">Savoring an eclectic kitchen, hundreds of visitors already go daily and choose their food from an extensive menu designed to satisfy the preferences tailored to the different current food trends.</string>
+    <string name="description5">Cuban, Caribbean, Italian, Spanish, Chinese and international cuisines are the starting point to characterize the offers of the new team of chefs and entrepreneurs who have joined to give new life to a project that aims to grow and evolve in search of a sovereign, sustainable and high quality service.</string>
+    <string name="description6">Vegetarians, vegans and celiacs also find dishes tailored to their preferences and needs. In a precise and open dialogue, chefs and chefs are always on hand to adjust to the needs and preferences of each of the clients of 23 and H.</string>
     <string name="about_us">About Us</string>
     <string name="read_more">Read more</string>
     <string name="staff">Staff</string>

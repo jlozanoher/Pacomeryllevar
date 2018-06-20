@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity implements ActivityComs {
         }
 
         if(id == R.id.action_location){
-            double latitude = 23.14014;
-            double longitude = -82.39231;
+            double latitude = 23.13718;
+            double longitude = -82.38688;
             String label = "ABC Label";
             String uriBegin = "geo:" + latitude + "," + longitude;
             String query = latitude + "," + longitude + "(" + label + ")";
