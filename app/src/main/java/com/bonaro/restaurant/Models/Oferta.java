@@ -11,6 +11,7 @@ public class Oferta implements Parcelable {
     public static final String TABLE_OFERTA = "Oferta";
     public static final String TABLE_OFERTA_LANG = "Oferta_idioma";
     public static final String TABLE_OFERTA_CARTA = "Oferta_carta";
+    public static final String TABLE_OFERTA_CARTA_GRUPO = "Oferta_carta_grupo";
 
     public static final String KEY_OFERTAID = "id";
 
@@ -265,6 +266,26 @@ public class Oferta implements Parcelable {
                 "and oi.idioma_fk = " + idioma_id + "\n" +
                 "and o.grupo_fk = " + grupo_id;
     }
+
+    public static String getAllQuery(int idioma_id){
+        return  "  select o.id, o.precio, o.energiaKca, o.proteinaG,\n" +
+                "    o.grasaG, o.colesterolMg, o.carbohidratosG, o.fibraG, o.vitaminaAug,\n" +
+                "    o.vitaminaBseismg, o.vitaminaBdoceUg, o.vitaminaCmg, o.vitaminaEmg, o.potasioMg,\n" +
+                "    o.hierroMg, o.esFavorito, oi.nombre, oi.descripcion, oi.biopropiedades\n" +
+                "    from Oferta o inner join Oferta_idioma oi on o.id = oi.oferta_fk\n" +
+                "    where idioma_fk = " + idioma_id + " order by o.precio";
+    }
+
+
+    public static String getOfertaCartaGrupoQuery(int oferta_id){
+        return  "select * from Oferta_Carta_Grupo ocg\n" +
+                "where ocg.oferta_fk = " + oferta_id;
+    }
+
+    public static String getOfertaImage(int oferta_id){
+        return  "select imagen from Oferta where id = " + oferta_id;
+    }
+
 
     @Override
     public int describeContents() {

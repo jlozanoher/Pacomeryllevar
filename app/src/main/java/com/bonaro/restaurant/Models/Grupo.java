@@ -41,6 +41,18 @@ public class Grupo {
         this.mOfertaList = new ArrayList<>();
     }
 
+    public Grupo(Grupo grupo){
+        this.mId = grupo.getId();
+        this.mNombre = grupo.getNombre();
+        this.mDescripcion = grupo.getDescripcion();
+        this.mImage = grupo.getImage();
+        this.mOfertaList = null;
+    }
+
+    public void setOfertaList(List<Oferta> ofertaList){
+        this.mOfertaList = ofertaList;
+    }
+
     public int getId() {
         return mId;
     }
@@ -73,12 +85,11 @@ public class Grupo {
 //    }
 
     static public String getQueryGroupsByCard(int languageId, int cartaID){
-        return "Select grupo_idioma.grupo_fk as id, grupo_idioma.nombre, grupo_idioma.descripcion, grupo.imagen\n" +
-                "from carta , oferta, oferta_carta, grupo\n" +
-                "inner join grupo_idioma on grupo.id = grupo_idioma.grupo_fk\n" +
-                "where carta.id = oferta_carta.carta_fk and  oferta_carta.oferta_fk = oferta.id and grupo.id = oferta.grupo_fk and \n" +
-                "carta.id = " + cartaID + "\n" +
-                "and grupo_idioma.idioma_fk = " + languageId +"\n" +
-                "group by grupo_idioma.grupo_fk";
+        return "Select ocg.grupo_fk, g.imagen, gi.nombre, gi.descripcion\n" +
+                "from Oferta_Carta_Grupo ocg inner join Grupo g on ocg.grupo_fk = g.id\n" +
+                "inner join Grupo_idioma gi on g.id = gi.grupo_fk\n" +
+                "where ocg.carta_fk = " + cartaID +
+                " and gi.idioma_fk = " + languageId + "\n" +
+                "group by ocg.grupo_fk";
     }
 }

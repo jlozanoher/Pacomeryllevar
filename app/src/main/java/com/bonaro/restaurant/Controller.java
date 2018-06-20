@@ -50,15 +50,12 @@ public class Controller {
 
     private Context mContext;
 
-    private int mTotalPictures;
-
 
     private Controller() {
         mIdiomaList = new ArrayList<>();
         mCartaList = new ArrayList<>();
         mGrupoMap = new HashMap<>();
 
-        mTotalPictures = 0;
         // Use 1/8th of the available memory for this memory cache.
 //        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
 //        final int cacheSize = maxMemory / 8;
@@ -154,83 +151,7 @@ public class Controller {
             cursorGrupo.moveToFirst();
 
             while (!cursorGrupo.isAfterLast()){
-                int grupoId = cursorGrupo.getInt(cursorGrupo.getColumnIndex(Grupo.KEY_GRUPOID));
-
-                List<Oferta> myOffers = new ArrayList<>();
-
-                //Fetching Oferta Table
-                List<Oferta> ofertaList = new ArrayList<>();
-                // Select query, language, card and group of the offer
-                String query = Oferta.getSelectQuery(mLanguageSelected, cartaID, grupoId);
-                Cursor cursorOferta = mdb.rawQuery(query, null);
-
-                cursorOferta.moveToFirst();
-                while (!cursorOferta.isAfterLast()){
-
-                    int ofertaId = cursorOferta.getInt(cursorOferta.getColumnIndex(Oferta.KEY_OFERTAID));
-
-                    Bitmap bitmap = getBitmapFromMemCache(ofertaId); // Get cached Bitmap
-
-                    if(bitmap == null){
-                        Runtime runtime = Runtime.getRuntime();
-                        long maxMemory=runtime.maxMemory();
-                        long usedMemory=runtime.totalMemory() - runtime.freeMemory();
-                        long availableMemory=maxMemory-usedMemory;
-                        if(mTotalPictures > 1){
-                            Log.d("LLEGO A " + mTotalPictures, " FF");
-                        }
-                        ++mTotalPictures;
-                        if(availableMemory > maxMemory*0.1) {
-                            // If can load the bitmap on RAM
-                            if (mBitmapCache.size() < mBitmapCache.maxSize()) {
-                                byte[] byteArray = cursorOferta.getBlob(cursorOferta.getColumnIndex(Oferta.KEY_IMAGEN));
-
-                                if (byteArray != null) {
-                                    bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-                                    addBitmapToMemoryCache(ofertaId, bitmap);  //Cache bitmap
-                                }
-                            }
-                        }
-                        else{
-                            Log.d("maxMemory: " + maxMemory + " availableMemory: " + availableMemory, " FF");
-                        }
-                    }
-
-                    Oferta oferta = new Oferta(ofertaId,
-                            cursorOferta.getString(cursorOferta.getColumnIndex(Oferta.KEY_NOMBRE)),
-                            cursorOferta.getString(cursorOferta.getColumnIndex(Oferta.KEY_DESCRIPCION)),
-                            cursorOferta.getString(cursorOferta.getColumnIndex(Oferta.KEY_BIOPROPS)),
-                            cursorOferta.getInt(cursorOferta.getColumnIndex(Oferta.KEY_GRUPOFK)),
-                            cartaID,
-                            cursorOferta.getDouble(cursorOferta.getColumnIndex(Oferta.KEY_PRECIO)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_ENERGIA)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_PROTEINA)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_GRASA)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_COLESTEROL)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_CARBOHIDRATOS)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_FIBRA)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_VITA)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_VITB6)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_VITB12)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_VITC)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_VITE)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_POTASIO)),
-                            cursorOferta.getFloat(cursorOferta.getColumnIndex(Oferta.KEY_HIERRO)),
-                            cursorOferta.getInt(cursorOferta.getColumnIndex(Oferta.KEY_ESFAVORITO)),
-                            cursorOferta.getInt(cursorOferta.getColumnIndex(Oferta.KEY_VECESPARACOMPRAR)),
-                            bitmap,
-                            totalOffersInCard
-                    );
-                    ++totalOffersInCard;
-                    totalPay += oferta.getPrecio() * oferta.getVecesParaComprar();
-                    ofertaList.add(oferta);
-                    if(oferta.getVecesParaComprar() > 0){
-                        Log.d("loz", "cartaID: " + cartaID + ", " + oferta.getNombre() + ": " + oferta.getVecesParaComprar());
-                        myOffers.add(oferta);
-                    }
-                    cursorOferta.moveToNext();
-                }
-                cursorOferta.close();
+                int grupoId = cursorGrupo.getInt(cursorGrupo.getColumnIndex(Oferta.KEY_GRUPOFK));
 
                 String grupoNombre = cursorGrupo.getString(cursorGrupo.getColumnIndex(Grupo.KEY_NOMBRE));
                 String grupoDescripcion = cursorGrupo.getString(cursorGrupo.getColumnIndex(Grupo.KEY_DESCRIPCION));
@@ -251,16 +172,10 @@ public class Controller {
                 Grupo grupo = new Grupo(grupoId,
                         grupoNombre,
                         grupoDescripcion,
-                        ofertaList,
+                        new ArrayList<Oferta>(),
                         bitmap);
 
                 mGrupoMap.put(grupoId, new Grupo(grupoId, grupoNombre, grupoDescripcion, bitmap));
-
-                // Added this group if has offers to mMyChoosenCard
-                if(myOffers.size() > 0){
-                    Grupo myOffersGroup = new Grupo(grupoId, grupoNombre, grupoDescripcion, myOffers, bitmap);
-                    mMyChoosenCard.addGroup(myOffersGroup);
-                }
 
                 grupoList.add(grupo);
                 cursorGrupo.moveToNext();
@@ -275,7 +190,6 @@ public class Controller {
                     totalPay);
 
             ++totalCartas;
-            mTotalToPayAllCards += totalPay;
             mCartaList.add(carta);
             cursorCarta.moveToNext();
         }
@@ -286,7 +200,141 @@ public class Controller {
 
         // My offer card
 
+        // ALL Offers
+        //Fetching Grupo Table
+        String allOffersQuery = Oferta.getAllQuery(mLanguageSelected);
+        Cursor cursorAllOffers = mdb.rawQuery(allOffersQuery, null);
+        cursorAllOffers.moveToFirst();
+
+        while (!cursorAllOffers.isAfterLast()){
+            int oferta_id = cursorAllOffers.getInt(cursorAllOffers.getColumnIndex(Oferta.KEY_OFERTAID));
+
+            String ofertaCartaGrupoQuery = Oferta.getOfertaCartaGrupoQuery(oferta_id);
+            Cursor ocgCursor = mdb.rawQuery(ofertaCartaGrupoQuery, null);
+            ocgCursor.moveToFirst();
+            while (!ocgCursor.isAfterLast()){
+                int carta_id = ocgCursor.getInt(ocgCursor.getColumnIndex(Oferta.KEY_CARTAFK));
+                int grupo_id = ocgCursor.getInt(ocgCursor.getColumnIndex(Oferta.KEY_GRUPOFK));
+                int vecesParaComprar = ocgCursor.getInt(ocgCursor.getColumnIndex(Oferta.KEY_VECESPARACOMPRAR));
+
+                Grupo grupo = getGrupoOfCartaByIds(carta_id, grupo_id);
+                if(grupo == null){
+                    ocgCursor.moveToNext();
+                    continue;
+                }
+
+                Oferta oferta = new Oferta(oferta_id,
+                            cursorAllOffers.getString(cursorAllOffers.getColumnIndex(Oferta.KEY_NOMBRE)),
+                            cursorAllOffers.getString(cursorAllOffers.getColumnIndex(Oferta.KEY_DESCRIPCION)),
+                            cursorAllOffers.getString(cursorAllOffers.getColumnIndex(Oferta.KEY_BIOPROPS)),
+                            grupo_id,
+                            carta_id,
+                            cursorAllOffers.getDouble(cursorAllOffers.getColumnIndex(Oferta.KEY_PRECIO)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_ENERGIA)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_PROTEINA)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_GRASA)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_COLESTEROL)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_CARBOHIDRATOS)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_FIBRA)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_VITA)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_VITB6)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_VITB12)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_VITC)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_VITE)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_POTASIO)),
+                            cursorAllOffers.getFloat(cursorAllOffers.getColumnIndex(Oferta.KEY_HIERRO)),
+                            cursorAllOffers.getInt(cursorAllOffers.getColumnIndex(Oferta.KEY_ESFAVORITO)),
+                            vecesParaComprar,
+                            getImageByOfertaId(oferta_id),
+                            -1
+                    );
+
+                grupo.addOferta(oferta);
+
+                ocgCursor.moveToNext();
+            }
+            ocgCursor.close();
+
+            cursorAllOffers.moveToNext();
+        }
+        cursorAllOffers.close();
+
         mdb.close();
+
+        populateOffersList();
+    }
+
+    private void populateOffersList(){
+        for(int i=0; i<mCartaList.size()-1; ++i){
+            Carta carta = mCartaList.get(i);
+            for(Grupo grupo: carta.getGrupoList()){
+                List<Oferta> myOfertaList = new ArrayList<>();
+                for(Oferta oferta: grupo.getOfertaList()){
+                    if(oferta.getVecesParaComprar() > 0){
+                        myOfertaList.add(oferta);
+                        mTotalToPayAllCards += oferta.getPrecio() * oferta.getVecesParaComprar();
+                    }
+                }
+                if(myOfertaList.isEmpty()) continue;
+                // If has offers, add the group to myChoosenCard
+                Grupo myGrupo = new Grupo(grupo);
+                myGrupo.setOfertaList(myOfertaList);
+                mMyChoosenCard.addGroup(myGrupo);
+            }
+        }
+    }
+
+    private Carta getCartaById(int carta_id){
+        for(Carta carta : mCartaList){
+            if(carta.getId() == carta_id) return carta;
+        }
+        return null;
+    }
+
+    private Grupo getGrupoOfCartaByIds(int carta_id, int grupo_id){
+        Carta carta = getCartaById(carta_id);
+        if(carta == null) return null;
+        List <Grupo> grupos = carta.getGrupoList();
+        if(grupos.isEmpty()) return null;
+        for(Grupo grupo : grupos){
+            if(grupo.getId() == grupo_id) return grupo;
+        }
+        return null;
+    }
+
+    private Bitmap getImageByOfertaId(int oferta_id){
+
+            Bitmap bitmap = getBitmapFromMemCache(oferta_id); // Get cached Bitmap
+
+            if(bitmap == null){
+                Runtime runtime = Runtime.getRuntime();
+                long maxMemory=runtime.maxMemory();
+                long usedMemory=runtime.totalMemory() - runtime.freeMemory();
+                long availableMemory=maxMemory-usedMemory;
+
+                if(availableMemory > maxMemory*0.1) {
+                    // If can load the bitmap on RAM
+                    if (mBitmapCache.size() < mBitmapCache.maxSize()) {
+
+                        // Fetching image
+                        String imageQuery = Oferta.getOfertaImage(oferta_id);
+                        Cursor imageCursor = mdb.rawQuery(imageQuery, null);
+                        imageCursor.moveToFirst();
+                        byte[] byteArray = imageCursor.getBlob(imageCursor.getColumnIndex(Oferta.KEY_IMAGEN));
+                        imageCursor.close();
+
+                        if (byteArray != null) {
+                            bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+                            addBitmapToMemoryCache(oferta_id, bitmap);  //Cache bitmap
+                        }
+                    }
+                }
+                else{
+                    Log.d("maxMem: " + maxMemory + " availableMem: " + availableMemory, " FF");
+                }
+            }
+
+            return bitmap;
     }
 
     public List <Carta> getCartaList(){
@@ -316,8 +364,9 @@ public class Controller {
         int cartaID = oferta.getCartaFK();
         values = new ContentValues();
         values.put(Oferta.KEY_VECESPARACOMPRAR, oferta.getVecesParaComprar());
-        long result = mdb.update(Oferta.TABLE_OFERTA_CARTA, values,
-                Oferta.KEY_OFERTAFK + "=" + oferta.getId() + " and " + Oferta.KEY_CARTAFK + "=" + cartaID,
+        long result = mdb.update(Oferta.TABLE_OFERTA_CARTA_GRUPO, values,
+                Oferta.KEY_OFERTAFK + "=" + oferta.getId() + " and " + Oferta.KEY_CARTAFK + "=" + cartaID
+                        + " and " + Oferta.KEY_GRUPOFK + "=" + oferta.getGrupoFK(),
                 null);
         Log.d("loz", "updateOferta: " + oferta.getId() + " carta: " + cartaID +
                 " vecesParaComprar: " + oferta.getVecesParaComprar() + " rows afected:" + result);
