@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements ActivityComs {
         MenuItem menuItemMaecenas = menu.findItem(R.id.action_earn_money);
         menuItemInvite.setVisible(mInviteFriends && mIsSimSupport);
         menuItemMaecenas.setVisible(mIsSimSupport);
-//        menuItemMaecenas.setVisible(false); // Todo: habilitate  maecenas
+        menuItemMaecenas.setVisible(false); // Todo: habilitate  maecenas
         return true;
     }
 
