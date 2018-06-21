@@ -161,70 +161,104 @@ public class DialogOfertaDetailed extends DialogFragment {
         txtNombre.setText(mOferta.getNombre().trim());
         txtDescripcion.setText(mOferta.getDescripcion());
 
+        int cont = 0;
+
         if(mOferta.getEnergiaKca() > 0)
             txtEnergia.setText(String.format("%s: %.3f", getString(R.string.energy), mOferta.getEnergiaKca()));
-        else
+        else{
             txtEnergia.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getProteinaG() > 0)
             txtProteina.setText(String.format("%s: %.3f", getString(R.string.protein), mOferta.getProteinaG()));
-        else
+        else {
             txtProteina.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getGrasaG() > 0)
             txtGrasa.setText(String.format("%s: %.3f", getString(R.string.fat), mOferta.getGrasaG()));
-        else
+        else {
             txtGrasa.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getColesterolMg() > 0)
             txtColesterol.setText(String.format("%s: %.3f", getString(R.string.cholesterol), mOferta.getColesterolMg()));
-        else
+        else{
             txtColesterol.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getCarbohidratosG() > 0)
             txtCarbohidratos.setText(String.format("%s: %.3f", getString(R.string.carbohydrate), mOferta.getCarbohidratosG()));
-        else
+        else{
             txtCarbohidratos.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getFibraG() > 0)
             txtFibra.setText(String.format("%s: %.3f", getString(R.string.fiber), mOferta.getFibraG()));
-        else
+        else{
             txtFibra.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getVitAUg() > 0)
             txtVitA.setText(String.format("%s: %.3f", getString(R.string.vitamin_a), mOferta.getVitAUg()));
-        else
+        else{
             txtVitA.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getVitB6Mg() > 0)
             txtVitB6.setText(String.format("%s: %.3f", getString(R.string.vitamin_b6), mOferta.getVitB6Mg()));
-        else
+        else{
             txtVitB6.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getVitB12Ug() > 0)
             txtVitB12.setText(String.format("%s: %.3f", getString(R.string.vitamin_b12), mOferta.getVitB12Ug()));
-        else
+        else{
             txtVitB12.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getVitCMg() > 0)
             txtVitC.setText(String.format("%s: %.3f", getString(R.string.vitamin_c), mOferta.getVitCMg()));
-        else
+        else{
             txtVitC.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getVitEMg() > 0)
             txtVitE.setText(String.format("%s: %.3f", getString(R.string.vitamin_e), mOferta.getVitEMg()));
-        else
+        else{
             txtVitE.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getPotasioMg() > 0)
             txtPotasio.setText(String.format("%s: %.3f", getString(R.string.potassium), mOferta.getPotasioMg()));
-        else
+        else{
             txtPotasio.setVisibility(View.GONE);
+            ++cont;
+        }
 
         if(mOferta.getHierroMg() > 0)
             txtHierro.setText(String.format("%s: %.3f", getString(R.string.iron), mOferta.getHierroMg()));
-        else
+        else{
             txtHierro.setVisibility(View.GONE);
+            ++cont;
+        }
+
+        // Hide some elements if they're empty
+        if(cont == 13) btnContent.setVisibility(View.GONE);
+
+        String bioprops = mOferta.getBiopropiedades();
+        if(bioprops == null || bioprops.equals("")) btnProperties.setVisibility(View.GONE);
 
         txtBiopropiedades.setText(mOferta.getBiopropiedades());
 

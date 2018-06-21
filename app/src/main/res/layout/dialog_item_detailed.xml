@@ -130,7 +130,6 @@
                 android:drawableLeft="@drawable/abajo"
                 android:drawablePadding="@dimen/activity_horizontal_margin"
                 android:clickable="false"
-                android:visibility="gone"
                 android:background="?android:attr/selectableItemBackground"/>
 
             <LinearLayout
@@ -246,7 +245,6 @@
                 android:drawableLeft="@drawable/abajo"
                 android:drawablePadding="@dimen/activity_horizontal_margin"
                 android:clickable="false"
-                android:visibility="gone"
                 android:background="?android:attr/selectableItemBackground"/>
 
             <TextView
