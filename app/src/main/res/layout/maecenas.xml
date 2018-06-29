@@ -71,7 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="@dimen/fab_margin"
-                app:backgroundTint="@color/yellow"
                 android:src="@android:drawable/ic_dialog_email" />
         </LinearLayout>
     </ScrollView>

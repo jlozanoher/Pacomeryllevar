@@ -13,7 +13,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_menu_delete"
         app:fabSize="mini"
-        app:backgroundTint="@color/yellow"
         android:visibility="gone"
         />
 
