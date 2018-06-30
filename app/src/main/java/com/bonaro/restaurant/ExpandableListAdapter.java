@@ -102,8 +102,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         ImageView imgShop = (ImageView) convertView.findViewById(R.id.imgShop);
         ImageView imgOferta = (ImageView) convertView.findViewById(R.id.imgOferta);
 
-
-        txtNombre.setText(oferta.getNombre().trim());
+        String nombreOfertaItem = oferta.getId() + " " + oferta.getNombre().trim();
+        txtNombre.setText(nombreOfertaItem);
         txtPrecio.setText(String.format("$%.2f", oferta.getPrecio()));
         String aux = "";
         if(oferta.getVecesParaComprar() > 0) aux = String.format("(x%d)=$%.2f", oferta.getVecesParaComprar(), oferta.getVecesParaComprar() * oferta.getPrecio());

@@ -158,7 +158,8 @@ public class DialogOfertaDetailed extends DialogFragment {
         if(mOferta.getImage() == null)
             imgOferta.setVisibility(View.GONE);
 
-        txtNombre.setText(mOferta.getNombre().trim());
+        String nombreOfertaItem = mOferta.getId() + " " + mOferta.getNombre().trim();
+        txtNombre.setText(nombreOfertaItem);
         txtDescripcion.setText(mOferta.getDescripcion());
 
         int cont = 0;
